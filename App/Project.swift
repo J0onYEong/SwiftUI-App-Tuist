@@ -7,10 +7,13 @@ private let iOSTargetVersion: String = "16.0"
 
 // 아래의 Targets는 Tuist파일에 존재한다.
 private let basePath: String = "Targets/ChoijunApp"
+private let packagePath: String = "Packages"
 private let appName: String = "ChoijunApp"
 
 let project = Project(name: "\(appName)",
-                      packages: [],
+                      packages: [
+                        .package(path: "\(packagePath)/ChoijunAppUI"),
+                      ],
                       settings: Settings.settings(configurations: makeConfiguration()),
                       targets: [
                         Target(
@@ -22,8 +25,11 @@ let project = Project(name: "\(appName)",
                             infoPlist: makeInfoPlist(),
                             sources: ["\(basePath)/Sources/**"],
                             resources: ["\(basePath)/Resources/**"],
+                            dependencies: [
+                                .package(product: "ChoijunAppUI")
+                            ],
                             settings: baseSettings()
-                        )
+                        ),
                       ],
                       additionalFiles: [
                             "README.md",
