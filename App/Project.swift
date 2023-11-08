@@ -26,7 +26,7 @@ let project = Project(name: "\(appName)",
                             sources: ["\(basePath)/Sources/**"],
                             resources: ["\(basePath)/Resources/**"],
                             dependencies: [
-                                .package(product: "ChoijunAppUI")
+                                .package(product: "ChoijunAppUI"),
                             ],
                             settings: baseSettings()
                         ),
