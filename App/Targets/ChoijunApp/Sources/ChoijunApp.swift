@@ -6,7 +6,9 @@ import UIComponents
 struct TuistTempApp: App {
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            NavigationStack {
+                WelcomeScreen()
+            }
         }
     }
 }

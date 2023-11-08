@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class WelcomeViewModel: ObservableObject {
+public final class WelcomeScreenModel: ObservableObject {
     
     public init() { }
     
