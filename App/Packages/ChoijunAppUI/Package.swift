@@ -11,7 +11,8 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "ChoijunAppUI",
-            targets: ["ChoijunAppUI"]),
+            targets: ["ChoijunAppUI"]
+        )
     ],
     dependencies: [
         .package(name: "UIComponents", path: "../UIComponents")
@@ -21,15 +22,16 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         // Source 내부의 첫번째 디렉토리가 바로 타깃이다.
         .target(
-            name: "ChoijunAppUI", 
-            dependencies: [ "UIComponents", ],
+            name: "ChoijunAppUI",
+            dependencies: ["UIComponents"],
             resources: [
                 .process("Resources/lotties/thinking_human_lottie.json"),
-                .process("Resources/lotties/astronaut.json"),
+                .process("Resources/lotties/astronaut.json")
             ]
         ),
         .testTarget(
             name: "ChoijunAppUITests",
-            dependencies: ["ChoijunAppUI"]),
+            dependencies: ["ChoijunAppUI"]
+        )
     ]
 )

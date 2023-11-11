@@ -12,27 +12,27 @@ private let appName: String = "ChoijunApp"
 
 let project = Project(name: "\(appName)",
                       packages: [
-                        .package(path: "\(packagePath)/ChoijunAppUI"),
+                          .package(path: "\(packagePath)/ChoijunAppUI")
                       ],
                       settings: Settings.settings(configurations: makeConfiguration()),
                       targets: [
-                        Target(
-                            name: "Target1",
-                            platform: .iOS,
-                            product: .app,
-                            bundleId: bundleId,
-                            deploymentTarget: .iOS(targetVersion: iOSTargetVersion, devices: .iphone),
-                            infoPlist: makeInfoPlist(),
-                            sources: ["\(basePath)/Sources/**"],
-                            resources: ["\(basePath)/Resources/**"],
-                            dependencies: [
-                                .package(product: "ChoijunAppUI"),
-                            ],
-                            settings: baseSettings()
-                        ),
+                          Target(
+                              name: "Target1",
+                              platform: .iOS,
+                              product: .app,
+                              bundleId: bundleId,
+                              deploymentTarget: .iOS(targetVersion: iOSTargetVersion, devices: .iphone),
+                              infoPlist: makeInfoPlist(),
+                              sources: ["\(basePath)/Sources/**"],
+                              resources: ["\(basePath)/Resources/**"],
+                              dependencies: [
+                                  .package(product: "ChoijunAppUI")
+                              ],
+                              settings: baseSettings()
+                          )
                       ],
                       additionalFiles: [
-                            "README.md",
+                          "README.md"
                       ])
 /// Create extended plist for iOS
 /// - Returns: InfoPlist
@@ -42,17 +42,17 @@ private func makeInfoPlist(merging other: [String: Plist.Value] = [:]) -> InfoPl
         "UILaunchScreen": [],
         "UISupportedInterfaceOrientations":
             [
-                "UIInterfaceOrientationPortrait",
+                "UIInterfaceOrientationPortrait"
             ],
         "CFBundleShortVersionString": "\(version)",
         "CFBundleVersion": "\(bundleVersion)",
-        "CFBundleDisplayName": "$(APP_DISPLAY_NAME)",
+        "CFBundleDisplayName": "$(APP_DISPLAY_NAME)"
     ]
-    
+
     other.forEach { (key: String, value: Plist.Value) in
         extendedPlist[key] = value
     }
-    
+
     return InfoPlist.extendingDefault(with: extendedPlist)
 }
 
@@ -60,17 +60,17 @@ private func makeInfoPlist(merging other: [String: Plist.Value] = [:]) -> InfoPl
 /// - Returns: Configuration Tuple
 /// Configuration을 추가하고 싶다면 해당 함수를 수정하여 추가할 수 있다.
 private func makeConfiguration() -> [Configuration] {
-    let debug: Configuration = Configuration.debug(name: "Debug", xcconfig: "Configs/Debug.xcconfig")
-    let release: Configuration = Configuration.release(name: "Release", xcconfig: "Configs/Release.xcconfig")
-    
+    let debug = Configuration.debug(name: "Debug", xcconfig: "Configs/Debug.xcconfig")
+    let release = Configuration.release(name: "Release", xcconfig: "Configs/Release.xcconfig")
+
     return [debug, release]
 }
 
 /// Create baseSettings
 /// - Returns: Settings
-private func baseSettings() -> Settings{
+private func baseSettings() -> Settings {
     var settings = SettingsDictionary()
-    
+
     return Settings.settings(base: settings,
                              configurations: [],
                              defaultSettings: .recommended)

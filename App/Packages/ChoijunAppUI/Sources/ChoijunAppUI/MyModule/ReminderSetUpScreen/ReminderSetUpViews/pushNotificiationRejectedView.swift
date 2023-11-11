@@ -9,7 +9,7 @@ import SwiftUI
 
 struct pushNotificiationRejectedView: View {
     @ObservedObject var screenModel: ReminderSetUpScreenModel
-    
+
     var body: some View {
         Text("pushNotificiationRejectedView - TODO")
     }

@@ -1,5 +1,5 @@
-import SwiftUI
 import ChoijunAppUI
+import SwiftUI
 import UIComponents
 
 @main

@@ -6,16 +6,17 @@ import PackageDescription
 let package = Package(
     name: "UIComponents",
     platforms: [
-        .iOS(.v16),
+        .iOS(.v16)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "UIComponents",
-            targets: ["UIComponents"]),
+            targets: ["UIComponents"]
+        )
     ],
     dependencies: [
-        .package(url: "https://github.com/airbnb/lottie-spm.git", exact: "4.1.3"),
+        .package(url: "https://github.com/airbnb/lottie-spm.git", exact: "4.1.3")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -23,11 +24,12 @@ let package = Package(
         .target(
             name: "UIComponents",
             dependencies: [
-                .product(name: "Lottie", package: "lottie-spm"),
+                .product(name: "Lottie", package: "lottie-spm")
             ]
         ),
         .testTarget(
             name: "UIComponentsTests",
-            dependencies: ["UIComponents"]),
+            dependencies: ["UIComponents"]
+        )
     ]
 )
