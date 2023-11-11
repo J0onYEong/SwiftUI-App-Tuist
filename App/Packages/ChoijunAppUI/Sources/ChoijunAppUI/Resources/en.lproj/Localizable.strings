@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  
+
+  Created by 최준영 on 2023/11/11.
+  
+*/
+
+// MARK: - ReminderSetupScreen
+"remindersetup_title" = "Hard work beats talent";
+"remindersetup_continue" = "Allow push notifications";
+"remindersetup_text_1" = "As you probably know: **Hard work beats talent!** And this is why I will send you reminders to workout. You can choose how many times you want to go to the gym and on which days L - The notification will be funny and motivating.";
+"remindersetup_text_2" = "If you don*I want notifications and skip days, just press the Skip button. © But we are not here to skip our workouts, are we? Let's beat the talent with hard work!";
+"skip_button" = "Skip";

@@ -12,9 +12,6 @@ public final class WelcomeScreenModel: ObservableObject {
     public init() { }
     
     var animationFilePath: String {
-        guard let path = Bundle.module.path(forResource: "thinking_human_lottie", ofType: "json") else {
-            preconditionFailure("Can't find lottie file!")
-        }
-        return path
+        return Bundle.module.provideFilePath(name: "thinking_human_lottie", ext: "json")
     }
 }

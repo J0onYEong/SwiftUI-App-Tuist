@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  
+
+  Created by 최준영 on 2023/11/11.
+  
+*/
+
+
+// MARK: - ReminderSetUpScreen
+"remindersetup_title" = "Disziplin schlägt Talent •";
+"remindersetup_continue" = "Push Nachrichten erlauben";
+"remindersetup_text_1" = "Wie du wahrscheinlich schon weißt: **Disziplin schlägt Talent!** Aus diesem Grund werde ich die Erinnerungen für dein Training schicken. Wähle die Tage aus an denen du ins Gym willst ( - Die Nachrichten werden witzig und motivieren sein! ";
+"remindersetup_text_2" = "Wenn du keine Erinnerungen möchtest und Trainingstage übersprüngen willst, drücke den überspringen Button • Aber sind wir hier, um unser Training zu überspringen? Ich glaube nicht. Lass uns Talent mit harter Arbeit schlagen! «";
+"skip_button" = "Überspringen";

@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "ChoijunAppUI",
+    defaultLocalization: "en",
     platforms: [.iOS(.v16)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -22,7 +23,10 @@ let package = Package(
         .target(
             name: "ChoijunAppUI", 
             dependencies: [ "UIComponents", ],
-            resources: [.process("Resources/lotties/thinking_human_lottie.json"),]
+            resources: [
+                .process("Resources/lotties/thinking_human_lottie.json"),
+                .process("Resources/lotties/astronaut.json"),
+            ]
         ),
         .testTarget(
             name: "ChoijunAppUITests",
