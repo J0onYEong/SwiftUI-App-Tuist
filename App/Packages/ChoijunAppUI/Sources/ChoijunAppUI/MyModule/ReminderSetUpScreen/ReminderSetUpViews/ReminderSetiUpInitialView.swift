@@ -25,7 +25,7 @@ struct ReminderSetiUpInitialView: View {
             Text("remindersetup_text_2", bundle: .module)
 
             Spacer()
-
+            // TODO: asdasda
             LottieView(filePath: Bundle.module.provideFilePath(name: "astronaut", ext: "json"), loopMode: .loop)
                 .padding(10)
 

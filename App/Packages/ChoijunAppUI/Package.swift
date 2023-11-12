@@ -15,7 +15,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "UIComponents", path: "../UIComponents")
+        .package(name: "UIComponents", path: "../UIComponents"),
+        .package(url: "https://github.com/realm/SwiftLint", exact: .init(0, 51, 0))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -23,15 +24,44 @@ let package = Package(
         // Source 내부의 첫번째 디렉토리가 바로 타깃이다.
         .target(
             name: "ChoijunAppUI",
-            dependencies: ["UIComponents"],
+            dependencies: [
+                "UIComponents",
+                "ChoijunAppUIDomain"
+            ],
             resources: [
                 .process("Resources/lotties/thinking_human_lottie.json"),
                 .process("Resources/lotties/astronaut.json")
+            ],
+            plugins: [
+                .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
+            ]
+        ),
+        .target(
+            name: "ChoijunAppUIDomain",
+            dependencies: [
+                "ChoijunAppUIData"
+            ],
+            plugins: [
+                .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
+            ]
+        ),
+        .target(
+            name: "ChoijunAppUIData",
+            plugins: [
+                .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
             ]
         ),
         .testTarget(
             name: "ChoijunAppUITests",
             dependencies: ["ChoijunAppUI"]
+        ),
+        .testTarget(
+            name: "ChoijunAppUIDomainTests",
+            dependencies: ["ChoijunAppUIDomain"]
+        ),
+        .testTarget(
+            name: "ChoijunAppUIDataTests",
+            dependencies: ["ChoijunAppUIData"]
         )
     ]
 )

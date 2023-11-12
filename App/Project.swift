@@ -69,7 +69,10 @@ private func makeConfiguration() -> [Configuration] {
 /// Create baseSettings
 /// - Returns: Settings
 private func baseSettings() -> Settings {
-    var settings = SettingsDictionary()
+    let msForWarning = 5
+    let settings = SettingsDictionary()
+        .otherSwiftFlags("-xfrontend -warn-expression-type-checking=\(msForWarning)",
+                         "-xfrontend -warn-expression-function-bodies=\(msForWarning)")
 
     return Settings.settings(base: settings,
                              configurations: [],

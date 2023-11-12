@@ -21,7 +21,7 @@ struct ReminderSetUpScreen: View {
         case .pushNotificationAllowed:
             PushNotificationAllowedView(screenModel: screenModel)
         case .pushNotificiationRejected:
-            pushNotificiationRejectedView(screenModel: screenModel)
+            PushNotificiationRejectedView(screenModel: screenModel)
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct pushNotificiationRejectedView: View {
+struct PushNotificiationRejectedView: View {
     @ObservedObject var screenModel: ReminderSetUpScreenModel
 
     var body: some View {
@@ -16,5 +16,5 @@ struct pushNotificiationRejectedView: View {
 }
 
 #Preview {
-    pushNotificiationRejectedView(screenModel: ReminderSetUpScreenModel())
+    PushNotificiationRejectedView(screenModel: ReminderSetUpScreenModel())
 }
