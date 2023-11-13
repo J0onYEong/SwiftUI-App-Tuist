@@ -15,6 +15,7 @@ public struct DefaultButtonAnimation: ButtonStyle {
             .background(.cyan)
             .foregroundStyle(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 4.0))
+            .scaleEffect(configuration.isPressed ? 1.1 : 1.0)
             .animation(.easeInOut(duration: 0.1), value: configuration.isPressed)
     }
 }

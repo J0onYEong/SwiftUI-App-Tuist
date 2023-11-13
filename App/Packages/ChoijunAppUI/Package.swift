@@ -10,8 +10,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "ChoijunAppUI",
-            targets: ["ChoijunAppUI"]
+            name: "ChoijunPackage",
+            targets: ["ChoijunPackage"]
         )
     ],
     dependencies: [
@@ -21,7 +21,20 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        // Source 내부의 첫번째 디렉토리가 바로 타깃이다.
+        
+        // Entry point for ChoijunAppUI Package
+        .target(
+            name: "ChoijunPackage",
+            dependencies: [
+                "ChoijunAppUI"
+            ],
+            plugins: [
+                .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
+            ]
+        ),
+        
+        
+        // ---------- Internal targets ----------
         .target(
             name: "ChoijunAppUI",
             dependencies: [
@@ -51,6 +64,9 @@ let package = Package(
                 .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
             ]
         ),
+        
+        // ---------- Test targets ----------
+        
         .testTarget(
             name: "ChoijunAppUITests",
             dependencies: ["ChoijunAppUI"]

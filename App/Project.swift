@@ -26,7 +26,7 @@ let project = Project(name: "\(appName)",
                               sources: ["\(basePath)/Sources/**"],
                               resources: ["\(basePath)/Resources/**"],
                               dependencies: [
-                                  .package(product: "ChoijunAppUI")
+                                  .package(product: "ChoijunPackage")
                               ],
                               settings: baseSettings()
                           )
@@ -71,8 +71,8 @@ private func makeConfiguration() -> [Configuration] {
 private func baseSettings() -> Settings {
     let msForWarning = 5
     let settings = SettingsDictionary()
-        .otherSwiftFlags("-xfrontend -warn-expression-type-checking=\(msForWarning)",
-                         "-xfrontend -warn-expression-function-bodies=\(msForWarning)")
+//        .otherSwiftFlags("-xfrontend -warn-expression-type-checking=\(msForWarning)",
+//                         "-xfrontend -warn-expression-function-bodies=\(msForWarning)")
 
     return Settings.settings(base: settings,
                              configurations: [],
