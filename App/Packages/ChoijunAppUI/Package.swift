@@ -16,30 +16,32 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "UIComponents", path: "../UIComponents"),
-        .package(url: "https://github.com/realm/SwiftLint", exact: .init(0, 51, 0))
+        .package(url: "https://github.com/realm/SwiftLint", exact: .init(0, 51, 0)),
+        .package(url: "https://github.com/hmlongco/Factory", from: .init(2, 2, 0))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        
+
         // Entry point for ChoijunAppUI Package
         .target(
             name: "ChoijunPackage",
             dependencies: [
-                "ChoijunAppUI"
+                "ChoijunAppUI",
+                "Factory"
             ],
             plugins: [
                 .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
             ]
         ),
-        
-        
+
         // ---------- Internal targets ----------
         .target(
             name: "ChoijunAppUI",
             dependencies: [
                 "UIComponents",
-                "ChoijunAppUIDomain"
+                "ChoijunAppUIDomain",
+                "Factory"
             ],
             resources: [
                 .process("Resources/lotties/thinking_human_lottie.json"),
@@ -52,7 +54,8 @@ let package = Package(
         .target(
             name: "ChoijunAppUIDomain",
             dependencies: [
-                "ChoijunAppUIData"
+                "ChoijunAppUIData",
+                "Factory"
             ],
             plugins: [
                 .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
@@ -60,13 +63,16 @@ let package = Package(
         ),
         .target(
             name: "ChoijunAppUIData",
+            dependencies: [
+                "Factory"
+            ],
             plugins: [
                 .plugin(name: "SwiftLintPlugin", package: "SwiftLint")
             ]
         ),
-        
+
         // ---------- Test targets ----------
-        
+
         .testTarget(
             name: "ChoijunAppUITests",
             dependencies: ["ChoijunAppUI"]

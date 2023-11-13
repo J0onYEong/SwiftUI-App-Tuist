@@ -9,4 +9,5 @@ public enum ReminderSetUpState {
     case initial
     case pushNotificationAllowed
     case pushNotificiationRejected
+    case onBoardingFinished
 }

@@ -12,7 +12,8 @@ private let appName: String = "ChoijunApp"
 
 let project = Project(name: "\(appName)",
                       packages: [
-                          .package(path: "\(packagePath)/ChoijunAppUI")
+                          .package(path: "\(packagePath)/ChoijunAppUI"),
+                          .package(url: "https://github.com/hmlongco/Factory", from: .init(2, 2, 0))
                       ],
                       settings: Settings.settings(configurations: makeConfiguration()),
                       targets: [
@@ -26,7 +27,8 @@ let project = Project(name: "\(appName)",
                               sources: ["\(basePath)/Sources/**"],
                               resources: ["\(basePath)/Resources/**"],
                               dependencies: [
-                                  .package(product: "ChoijunPackage")
+                                  .package(product: "ChoijunPackage"),
+                                  .package(product: "Factory")
                               ],
                               settings: baseSettings()
                           )

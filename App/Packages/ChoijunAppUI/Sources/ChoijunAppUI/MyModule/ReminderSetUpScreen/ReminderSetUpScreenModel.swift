@@ -25,8 +25,12 @@ public extension ReminderSetUpScreenModel {
             // TODO: Request Auth
             print("Request Auth")
         case .skip:
-            // TODO: nextScreen
-            interactor.onBoardingFinished()
+            changeState(state: .onBoardingFinished)
         }
+    }
+
+    func changeState(state: ReminderSetUpState) {
+        print("!!!")
+        viewState = state
     }
 }
